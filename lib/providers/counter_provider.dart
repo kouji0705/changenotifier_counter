@@ -11,4 +11,9 @@ class CounterProvider extends ChangeNotifier {
     _counter.increment();
     notifyListeners(); // 値の変更を通知
   }
+
+  void decrement() {
+    _counter.decrement();
+    notifyListeners(); // 値の変更を通知
+  }
 }

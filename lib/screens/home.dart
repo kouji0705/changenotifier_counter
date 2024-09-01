@@ -25,10 +25,21 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: counterProvider.increment,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: counterProvider.increment,
+            tooltip: 'Increment',
+            child: Icon(Icons.add),
+          ),
+          SizedBox(width: 10), // ボタン間のスペース
+          FloatingActionButton(
+            onPressed: counterProvider.decrement,
+            tooltip: 'Decrement',
+            child: Icon(Icons.remove),
+          ),
+        ],
       ),
     );
   }
