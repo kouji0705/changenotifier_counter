@@ -1,13 +1,10 @@
-// lib/models/my_model.dart
-import 'package:flutter/material.dart';
+// lib/models/counter.dart
+class Counter {
+  int _count = 0;
 
-class MyModel extends ChangeNotifier {
-  int _counter = 0;
-
-  int get counter => _counter;
+  int get count => _count;
 
   void increment() {
-    _counter++;
-    notifyListeners();
+    _count++;
   }
 }

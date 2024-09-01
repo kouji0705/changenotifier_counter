@@ -1,29 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart'; // providerをインポート
-import 'providers/counter_provider.dart'; // CounterProviderをインポート
-import 'screens/home.dart'; // HomeScreenをインポート
+import 'package:provider/provider.dart';
+import 'providers/counter_provider.dart';
+import 'screens/home.dart';
 
 void main() {
-  runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => CounterProvider()),
-        // 必要であれば他のProviderを追加
-      ],
-      child: MyApp(),
-    ),
-  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'ChangeNotifier Counter',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return ChangeNotifierProvider<CounterProvider>(
+      create: (_) => CounterProvider(),
+      child: MaterialApp(
+        title: 'ChangeNotifier Counter',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: HomeScreen(),
       ),
-      home: HomeScreen(), // HomeScreen内でCounterProviderを使えるようにする
     );
   }
 }

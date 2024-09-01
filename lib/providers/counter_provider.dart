@@ -1,12 +1,14 @@
+// lib/providers/counter_provider.dart
 import 'package:flutter/material.dart';
+import '../models/counter.dart';
 
 class CounterProvider extends ChangeNotifier {
-  int _counter = 0;
+  final Counter _counter = Counter();
 
-  int get counter => _counter;
+  int get counter => _counter.count;
 
   void increment() {
-    _counter++;
-    notifyListeners();
+    _counter.increment();
+    notifyListeners(); // 値の変更を通知
   }
 }
